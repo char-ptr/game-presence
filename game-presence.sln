@@ -4,13 +4,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "game-presence", "game-presence\game-presence.csproj", "{759B2B9C-EB1C-48A4-89A4-95C471E56579}"
-	ProjectSection(ProjectDependencies) = postProject
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4} = {54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DiscordRPC", "discord-rpc-csharp\DiscordRPC\DiscordRPC.csproj", "{146AAE01-904E-4867-BF54-F9C71F400B92}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GetRobloxName", "GetRobloxName\GetRobloxName.vcxproj", "{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FetchRbxGame", "FetchRbxGame\FetchRbxGame.csproj", "{5B5A1412-3462-4C88-97F0-C1F8BF2E6900}"
 EndProject
@@ -50,18 +45,6 @@ Global
 		{146AAE01-904E-4867-BF54-F9C71F400B92}.Release|x64.Build.0 = Release|Any CPU
 		{146AAE01-904E-4867-BF54-F9C71F400B92}.Release|x86.ActiveCfg = Release|Any CPU
 		{146AAE01-904E-4867-BF54-F9C71F400B92}.Release|x86.Build.0 = Release|Any CPU
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|Any CPU.ActiveCfg = Debug|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|Any CPU.Build.0 = Debug|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|x64.ActiveCfg = Debug|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|x64.Build.0 = Debug|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|x86.ActiveCfg = Debug|Win32
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Debug|x86.Build.0 = Debug|Win32
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|Any CPU.ActiveCfg = Release|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|Any CPU.Build.0 = Release|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|x64.ActiveCfg = Release|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|x64.Build.0 = Release|x64
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|x86.ActiveCfg = Release|Win32
-		{54E28EC1-58C6-4B5D-8BA9-1ACB3ACEB0D4}.Release|x86.Build.0 = Release|Win32
 		{5B5A1412-3462-4C88-97F0-C1F8BF2E6900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B5A1412-3462-4C88-97F0-C1F8BF2E6900}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B5A1412-3462-4C88-97F0-C1F8BF2E6900}.Debug|x64.ActiveCfg = Debug|Any CPU

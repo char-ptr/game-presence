@@ -13,7 +13,6 @@
     <ItemGroup>
       <ProjectReference Include="..\discord-rpc-csharp\DiscordRPC\DiscordRPC.csproj" />
       <ProjectReference Include="..\FetchRbxGame\FetchRbxGame.csproj" />
-      <ProjectReference Include="..\GetRobloxName\GetRobloxName.vcxproj" />
   </ItemGroup>
 
     <ItemGroup>
