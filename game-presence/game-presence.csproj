@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <RootNamespace>game_presence</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <BaseOutputPath>../Build/</BaseOutputPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\discord-rpc-csharp\DiscordRPC\DiscordRPC.csproj" />
+      <ProjectReference Include="..\FetchRbxGame\FetchRbxGame.csproj" />
+      <ProjectReference Include="..\GetRobloxName\GetRobloxName.vcxproj" />
+  </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="SteamWebAPI2" Version="4.3.2" />
+    </ItemGroup>
+
+</Project>
