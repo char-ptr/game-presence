@@ -1,9 +1,6 @@
 ﻿using DiscordRPC;
 using DiscordRPC.Logging;
-using DiscordRPC.Message;
-using System;
 using game_presence;
-using SteamWebAPI2.Utilities;
 
 DiscordRpcClient client;
 bool isRunning = false;
@@ -43,50 +40,33 @@ RPCClient.Get().Presence.Assets = new Assets()
 //Call this as many times as you want and anywhere in your code.
 Game? lastGame = null;
 client.SetPresence(RPCClient.Get().Presence);
-await MainLoop();
-async Task<bool> MainLoop()
-{
-    /*
-     * Enter a infinite loop, polling the Discord Client for events.
-     * In game termonology, this will be equivalent to our main game loop. 
-     * If you were making a GUI application without a infinite loop, you could implement
-     * this with timers.
-    */
-    isRunning = true;
-    while (client != null && isRunning)
+
+
+async void updateGame() {
+    var game = await GameHandler.FetchGaming(lastGame);
+    lastGame = game;
+    if (game != null)
     {
-        //We will invoke the client events. 
-        // In a game situation, you would do this in the Update.
-        // Not required if AutoEvents is enabled.
-        //if (client != null && !client.AutoEvents)
-        //	client.Invoke();
-
-        //Try to read any keys if available
-        if (Console.KeyAvailable)
-            Console.ReadKey();
-        var game = await GameHandler.FetchGaming(lastGame);
-        lastGame = game;
-        if (game != null)
-        {
-            var pres = RPCClient.Get().Presence;
-            pres.State = $"Playing {game.Name} on {game.Provider}";
-            pres.Assets.LargeImageKey = game.ArtworkGame;
-            pres.Assets.SmallImageKey = game.ArtworkProvider;
-        } else
-        {
-            var pres = RPCClient.Get().Presence;
-            pres.State = $"Idling";
-            pres.Assets.LargeImageKey = "";
-            pres.Assets.SmallImageKey = "";
-        }
-        //This can be what ever value you want, as long as it is faster than 30 seconds.
-        //Console.Write("+");
-        Thread.Sleep(5);
-
-        client.SetPresence(RPCClient.Get().Presence);
+        var pres = RPCClient.Get().Presence;
+        pres.State = $"Playing {game.Name} on {game.Provider}";
+        pres.Assets.LargeImageKey = game.ArtworkGame;
+        pres.Assets.SmallImageKey = game.ArtworkProvider;
+    } else
+    {
+        var pres = RPCClient.Get().Presence;
+        pres.State = $"Idling";
+        pres.Assets.LargeImageKey = "";
+        pres.Assets.SmallImageKey = "";
     }
+    client.SetPresence(RPCClient.Get().Presence);
 
-    Console.WriteLine("Press any key to terminate");
-    Console.ReadKey();
-    return true;
 }
+
+
+var inter = new System.Timers.Timer();
+inter.Interval = 5000;
+inter.AutoReset = true;
+inter.Enabled = true;
+inter.Elapsed += async (sender, e) => updateGame();
+Console.WriteLine("Press any key to exit... ");
+Console.ReadKey();

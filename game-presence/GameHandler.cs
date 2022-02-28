@@ -39,9 +39,18 @@ public class GameHandler
         uint RunningSteamGame = GetCurrentSteamGame();
         if (RunningSteamGame != 0)
         {
+            if (lastGame?.SteamId == RunningSteamGame) return lastGame;
             var store = SteamInterface.CreateSteamStoreInterface(new HttpClient());
             var gameData = await store.GetStoreAppDetailsAsync(RunningSteamGame);
-            return new Game() { Name = gameData.Name, Provider = "Steam", ArtworkGame = gameData.HeaderImage, ArtworkProvider = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png"};
+            Console.WriteLine("fetch steam data");
+            return new Game()
+            {
+                Name = gameData.Name, 
+                Provider = "Steam", 
+                SteamId = RunningSteamGame,
+                ArtworkGame = gameData.HeaderImage, 
+                ArtworkProvider = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png"
+            };
         }
 
         if (lastGame?.Provider == "Roblox")
@@ -76,4 +85,5 @@ public class Game
     public String Provider { get; set; }
     public String ArtworkGame { get; set; }
     public String ArtworkProvider { get; set; }
+    public uint? SteamId { get; set; }
 }
