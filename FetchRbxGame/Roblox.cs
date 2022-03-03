@@ -60,7 +60,7 @@ namespace FetchRbxGame
             try
             {
                 _knownId = _robloxProcess.ReadProcessMem<long>(
-                    (_robloxProcess.gameProcess?.MainModule?.BaseAddress ?? IntPtr.Zero) + 0x2D09228);
+                    (_robloxProcess.gameProcess?.MainModule?.BaseAddress ?? IntPtr.Zero) + 0x2C0ADB0);
             }
             catch (Exception e)
             {
